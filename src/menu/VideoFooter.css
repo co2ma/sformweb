@@ -1,0 +1,31 @@
+.videoFooter {
+  position:relative;
+  color: white;
+  bottom: 14vh;
+  width: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 20%;
+}
+
+.videoFooter__text {
+  width: 100%;
+  padding-left: 1rem;
+
+}
+
+#title {
+  font-size: clamp(15px, 3vw, 50px);
+  text-align: left;
+}
+
+#channel {
+  font-size: clamp(8px, 1.5vw, 50px);
+  text-align: left;
+}
+
+#description {
+
+  font-size: clamp(8px, 1.5vw, 50px);
+  text-align: left;
+}

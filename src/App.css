@@ -1,0 +1,42 @@
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tabbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  background-color: #000000;
+  height: 10%;
+}
+
+@media (max-width: 768px) {
+  .tabbar {
+    flex-direction: row;
+  }
+}
+
+.tabbar img{
+  height: 100%;
+  width: 100%;
+}
+
+svg {
+  fill:white;
+}
+
+span {
+  font-size: 200%;
+}
