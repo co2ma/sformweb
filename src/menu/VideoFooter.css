@@ -15,7 +15,7 @@
 }
 
 #title {
-  font-size: clamp(15px, 3vw, 50px);
+  font-size: clamp(15px, 2vw, 50px);
   text-align: left;
 }
 
