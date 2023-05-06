@@ -1,18 +1,22 @@
 import React, { useState, useEffect } from "react";
-import Video from "./Video";
-import { db } from "../firebase";
+import Video from "./video/Video";
+import { firestore } from "../firebase";
 import "./Home.css";
 import { collection, onSnapshot, query, doc, data } from "firebase/firestore";
 
 
-const Test = () => {
+const Home = () => {
   const [videos, setVideos] = useState([]);
   useEffect(() => {
-    const videosCollection = collection(db, "videos");
+    const videosCollection = collection(firestore, "projects");
     const q = query(videosCollection);
+    
     const unsubscribe = onSnapshot(q, (snapshot) => {
-      setVideos(snapshot.docs.map((doc) => doc.data()));
-    });
+      const data = snapshot.docs
+        .filter((doc) => doc.data().isTempSave !== false)
+        .map((doc) => doc.data());
+      setVideos(data);
+    }); 
 
     return () => unsubscribe();
   }, []);
@@ -21,13 +25,13 @@ const Test = () => {
     <div className="app">
       <div className="app__videos">
         {videos.map(
-          ({ url, channel, description, likes, linked, shares, title }) => (
+          ({ videoSrc, createdBy, summary, likes, linked, shares, title }) => (
             <Video
-              url={url}
-              channel={channel}
+              url={videoSrc}
+              channel={createdBy}
               likes={likes}
               linked={linked}
-              description={description}
+              description={summary}
               shares={shares}
               title={title}
             />
@@ -38,4 +42,4 @@ const Test = () => {
   );
 }
 
-export default Test;
+export default Home;

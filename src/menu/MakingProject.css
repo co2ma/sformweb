@@ -1,0 +1,24 @@
+input[type="text" i] {
+    --color:white;
+}
+p {
+    --color: white;
+    text-align: left;
+}
+
+input, textarea{
+    
+    color: white;
+}
+
+h1{
+    --h1-color: hsla(207, 100%, 98%, 0.877);
+}
+
+.editor{
+    width: 35rem;
+}
+
+#inputs{
+    width: 50rem;
+}

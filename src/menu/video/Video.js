@@ -26,6 +26,7 @@ const Video = ({ url, channel, description, likes, linked, shares, title }) => {
         muted={true}
         onClick={onVideoPress}
         ref={videoRef}
+        autoPlay
         src={url}
       ></video>
       <VideoFooter channel={channel} description={description} title={title} />

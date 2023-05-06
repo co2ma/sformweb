@@ -4,8 +4,6 @@ import google_normal from './icons/google_normal.png';
 import google_focus from './icons/google_focus.png';
 import google_pressed from './icons/google_pressed.png';
 import "./Account.css";
-import { CheckBox } from '@mui/icons-material';
-import { Checkbox } from '@mui/material';
 
 
 export const localUserData = () => {
@@ -62,7 +60,7 @@ const Account = () => {
   
   if(localUserData() == null){
     return (
-      <div>
+      <div id='loginTab'>
         <span>로그인</span><br/>
         <button id="social_login" onClick={handleGoogleLogin} >
         <img id="login_google" src={google_normal} alt="Your image description"/>

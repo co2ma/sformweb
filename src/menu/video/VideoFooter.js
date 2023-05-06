@@ -1,7 +1,7 @@
 import React from "react";
 import "./VideoFooter.css";
 
-function VideoFooter({ channel, title, description }) {
+const VideoFooter = ({ channel, title, description }) => {
   return (
     <div className="videoFooter" >
       <div className="videoFooter__text">

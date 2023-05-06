@@ -5,13 +5,16 @@
   background-color: #000000;
   color: #FFFFFF;
   font-weight: bold;
+  
 }
 
 .content {
   flex: 1;
   display: flex;
+
   justify-content: center;
-  align-items: center;
+  overflow-y: auto;
+  max-height: 90vh;
 }
 
 .tabbar {
@@ -19,7 +22,7 @@
   justify-content: space-around;
   padding: 1rem;
   background-color: #000000;
-  height: 10%;
+  height: 10vh;
 }
 
 @media (max-width: 768px) {
@@ -39,4 +42,8 @@ svg {
 
 span {
   font-size: 200%;
+}
+
+input {
+  color: black;
 }

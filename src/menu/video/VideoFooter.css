@@ -11,21 +11,28 @@
 .videoFooter__text {
   width: 100%;
   padding-left: 1rem;
-
 }
 
-#title {
-  font-size: clamp(15px, 2vw, 50px);
+
+
+#channel {
+  margin-left: 0rem;
+  margin-bottom: 0rem;
+  font-size: clamp(8px, 1.5vw, 16px);
   text-align: left;
 }
 
-#channel {
-  font-size: clamp(8px, 1.5vw, 50px);
+#title {
+  margin-bottom: 0.5rem;
+  margin-left: 0rem;
+  font-size: clamp(15px, 2vw, 30px);
   text-align: left;
 }
 
 #description {
 
-  font-size: clamp(8px, 1.5vw, 50px);
+  margin-bottom: 0rem;
+  margin-left: 0rem;
+  font-size: clamp(8px, 1.5vw, 16px);
   text-align: left;
 }

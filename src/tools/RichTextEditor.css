@@ -1,0 +1,21 @@
+.richTextEditorContainer .ql-container.ql-snow {
+    background-color: snow;
+    border-bottom-left-radius: 1%;
+    border-bottom-right-radius: 1%;
+    --color: black;
+}
+
+.rich-text-editor {
+    width: 50rem;
+    height: 30rem;
+    box-sizing: border-box;
+}
+
+#toolbar{
+    background-color: snow;
+
+}  
+
+.ql-editor p{
+    --color: black;
+}

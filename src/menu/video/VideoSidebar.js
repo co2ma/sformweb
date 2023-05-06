@@ -5,7 +5,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FeaturedPlayListIcon from '@mui/icons-material/FeaturedPlayList';
 import ShareIcon from '@mui/icons-material/Share';
 
-function VideoSidebar({ likes, shares, linked }) {
+const VideoSidebar = ({ likes, shares, linked }) => {
   const [liked, setLiked] = useState(false);
 
   return (
