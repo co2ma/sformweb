@@ -1,21 +1,26 @@
-.richTextEditorContainer .ql-container.ql-snow {
-    background-color: snow;
-    border-bottom-left-radius: 1%;
-    border-bottom-right-radius: 1%;
-    --color: black;
+.richTextEditor :global(.ql-container) {
+  border: 1px solid #ccc;
+  height: 100%;
 }
 
-.rich-text-editor {
-    width: 50rem;
-    height: 30rem;
-    box-sizing: border-box;
+.richTextEditor :global(.ql-toolbar) {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-bottom: none;
 }
 
-#toolbar{
-    background-color: snow;
+.richTextEditor :global(.ql-editor) {
+  min-height: 0;
+  flex-grow: 1;
+}
 
-}  
+.ql-snow .ql-picker.ql-size .ql-picker-label::before
+,.ql-snow .ql-color-picker .ql-picker-label svg{
+  line-height: 0px;
+  display: flex;
+}
 
-.ql-editor p{
-    --color: black;
+.ql-toolbar.ql-snow{
+  display: flex;
 }

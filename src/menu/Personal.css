@@ -41,3 +41,10 @@
     width: clamp(100px, 80vw, 500px);
     max-width: 100%;
   }
+  .middle{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }

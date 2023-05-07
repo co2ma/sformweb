@@ -17,7 +17,6 @@ const Projects = () => {
         const fetchProjects = async () => {
             const userData = localStorage.getItem("firebase:authUser:");
             const userId = JSON.parse(userData).email;
-            console.log(userId);
             const projectQuery = query(
                 collection(firestore, "projects"),
                 where("createdBy", "==", userId)
@@ -79,8 +78,8 @@ const Projects = () => {
         };
         if(localUserData() == null){
             return (
-                <div>
-                    <span>로그인 이후에 사용 할 수 있는 기능입니다.</span>
+                <div id="isLogin">
+                    로그인 이후에 사용 할 수 있는 기능입니다.
                 </div>
             );
     }

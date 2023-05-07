@@ -16,7 +16,7 @@ import ItemDetail from './menu/ItemDetail';
 
 
 const App = () => {
-  console.log(authService);
+  //console.log(authService);
   return (
     <Router>
       <div className="App">

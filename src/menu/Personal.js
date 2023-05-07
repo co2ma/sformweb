@@ -26,9 +26,6 @@ const Personal = () => {
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
-  console.log(userInfo);
-
-  
   const handleGoogleLogin = () => {
     setPersistence(auth, browserLocalPersistence)
       .then(() => {
@@ -60,7 +57,7 @@ const Personal = () => {
   
   if (localUserData() == null) {
     return (
-      <div id="loginTab">
+      <div id="loginTab" className='middle'>
         <span>로그인</span>
         <br />
         <button id="social_login" onClick={handleGoogleLogin}>
@@ -71,7 +68,7 @@ const Personal = () => {
   } else {
     const userData = localUserData();
     return (
-      <div>
+      <div className='middle'>
         <div className="user-info">
           <img src={userData.photoURL} alt="프로필 이미지" className="profile-image" />
           <h3>{userData.displayName}</h3>

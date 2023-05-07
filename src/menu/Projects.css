@@ -2,3 +2,9 @@
     text-align: left;
     color:White;
 }
+#isLogin{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}

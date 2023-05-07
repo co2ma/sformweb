@@ -149,10 +149,8 @@ const MakingProject = () => {
 				</p>		
 				<p>
 					내용<br/>
-					<RichTextEditor
-						value={content}
-                        onChange={(value) => setContent(value)}
-					/> 
+					<RichTextEditor value={content} onChange={(value) => setContent(value)} />
+
 				</p>     
 				<br/><br/>
 				<p> 
@@ -184,87 +182,3 @@ const MakingProject = () => {
 };
 
 export default MakingProject;
-
-/*
-import React, { useState } from "react";
-import { collection, addDoc } from "firebase/firestore";
-import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { firestore, storage } from "../firebase";
-import './Projects.css';
-
-const MakingProject = () => {
-	const [videoFile, setVideoFile] = useState(null);
-	const [uploading, setUploading] = useState(false);
-	const [title, setTitle] = useState("");
-	const [description, setDescription] = useState("");
-
-	const handleFileChange = (event) => {
-		setVideoFile(event.target.files[0]);
-	};
-
-	const handleSubmit = async (event) => {
-		event.preventDefault();
-
-		if (!videoFile) {
-			alert("Please select a video file");
-			return;
-		}
-
-		setUploading(true);
-		const videoRef = ref(storage, `videos/${videoFile.name}`);
-
-		try {
-			const uploadTask = uploadBytesResumable(videoRef, videoFile);
-
-			uploadTask.on(
-				"state_changed",
-				(snapshot) => {
-					// Optional: You can display the upload progress here
-				},
-				(error) => {
-					console.error("Error uploading video: ", error);
-					setUploading(false);
-				},
-				async () => {
-					const videoURL = await getDownloadURL(videoRef);
-					await addDoc(collection(firestore, "videos"), {
-						title,
-						description,
-						url: videoURL,
-					});
-					setUploading(false);
-					setTitle("");
-					setDescription("");
-					alert("Video uploaded and saved to Firestore!");
-				}
-			);
-		} catch (error) {
-			console.error("Error uploading video: ", error);
-			setUploading(false);
-		}
-	};
-
-	return (
-		<form onSubmit={handleSubmit}>
-			<input
-				type="text"
-				value={title}
-				onChange={(e) => setTitle(e.target.value)}
-				placeholder="Enter video title"
-			/>
-			<input
-				type="text"
-				value={description}
-				onChange={(e) => setDescription(e.target.value)}
-				placeholder="Enter video description"
-			/>
-			<input type="file" accept="video/*" onChange={handleFileChange} />
-			<button type="submit" disabled={uploading}>
-				{uploading ? "Uploading..." : "Upload Video"}
-			</button>
-		</form>
-	);
-};
-
-export default MakingProject;
-*/

@@ -8,7 +8,7 @@
   }
   
   .banner img {
-    width: clamp(100px,80vw,1000px);
+    width: clamp(100px,80vw,1200px);
     height: 20vw;
     object-fit: cover;
     position: absolute;

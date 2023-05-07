@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Video from "./video/Video";
 import { firestore } from "../firebase";
 import "./Home.css";
-import { collection, onSnapshot, query, doc, data } from "firebase/firestore";
+import { collection, onSnapshot, query } from "firebase/firestore";
 
 
 const Home = () => {
@@ -25,11 +25,10 @@ const Home = () => {
     <div className="app">
       <div className="app__videos">
         {videos.map(
-          ({ videoSrc, createdBy, summary, likes, linked, title }) => (
+          ({ videoSrc, createdBy, summary, linked, title }) => (
             <Video
               url={videoSrc}
               channel={createdBy}
-              likes={likes}
               linked={linked}
               description={summary}
               title={title}

@@ -7,8 +7,7 @@ import ShareIcon from '@mui/icons-material/Share';
 import { useNavigate } from "react-router-dom";
 
 
-const VideoSidebar = ({ likes, linked }) => {
-  const [liked, setLiked] = useState(false);
+const VideoSidebar = ({ linked }) => {
   const navigate = useNavigate();
 
   const handleListIconClick = () => {
@@ -31,17 +30,6 @@ const VideoSidebar = ({ likes, linked }) => {
 
   return (
     <div className="videoSidebar">
-      <div className="videoSidebar__button">
-        {liked ? (
-          <FavoriteIcon fontSize="large" onClick={(e) => setLiked(false)} />
-        ) : (
-          <FavoriteBorderIcon
-            fontSize="large"
-            onClick={(e) => setLiked(true)}
-          />
-        )}
-        <p>{liked ? likes + 1 : likes}</p>
-      </div>
       <div className="videoSidebar__button">
         <ListIcon fontSize="large" onClick={handleListIconClick} />
       </div>
