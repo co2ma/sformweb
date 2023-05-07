@@ -1,5 +1,6 @@
 .banner {
     height: 20vw;
+    width:auto;
     background-color: lightgray;
     display: flex;
     justify-content: center;
@@ -7,7 +8,7 @@
   }
   
   .banner img {
-    width: 50vw;
+    width: clamp(100px,80vw,1000px);
     height: 20vw;
     object-fit: cover;
     position: absolute;
@@ -24,7 +25,7 @@
   .product-card {
     background-color: white;
     box-shadow: 0 0.667vw 1vw rgba(0, 0, 0, 0.1);
-    width: 50vw;
+    width: clamp(100px,80vw,1000px);
     display: flex;
     flex-direction: column;
     cursor: pointer;
@@ -39,18 +40,25 @@
     padding: 1.067vw;
     margin-bottom: 0px;
   }
+
+  .product-info h3{
+    margin-bottom: 0px;
+  }
   
   .product-card p {
     --color: black;
   }
+
   
   @media screen {
     .product-card {
       flex-direction: row;
+      width: clamp(100px, 80vw, 1200px);
+      height: clamp(100px, 20vw, 200px);
     }
   
     .product-card img {
-      width: 6.667vw;
+      width: clamp(30px, 15vw, 300px);
     }
   
     .product-info {

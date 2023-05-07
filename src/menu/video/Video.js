@@ -30,7 +30,7 @@ const Video = ({ url, channel, description, likes, linked, shares, title }) => {
         src={url}
       ></video>
       <VideoFooter channel={channel} description={description} title={title} />
-      <VideoSidebar likes={likes} linked={linked} shares={shares} />
+      <VideoSidebar likes={likes} linked={linked}/>
     </div>
   );
 }

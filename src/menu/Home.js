@@ -25,14 +25,13 @@ const Home = () => {
     <div className="app">
       <div className="app__videos">
         {videos.map(
-          ({ videoSrc, createdBy, summary, likes, linked, shares, title }) => (
+          ({ videoSrc, createdBy, summary, likes, linked, title }) => (
             <Video
               url={videoSrc}
               channel={createdBy}
               likes={likes}
               linked={linked}
               description={summary}
-              shares={shares}
               title={title}
             />
           )

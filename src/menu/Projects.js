@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, addDoc, deleteDoc, doc, query, where } from "firebase/firestore";
+import { collection, getDocs, addDoc, deleteDoc, doc, query, where, updateDoc } from "firebase/firestore";
 import { firestore } from "../firebase";
-import { localUserData } from "./Account";
+import { localUserData } from "./Personal";
 import { useNavigate } from "react-router-dom";
 import "./Projects.css";
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -13,16 +13,6 @@ const Projects = () => {
     const navigate = useNavigate();
     const [hoverProjectId, setHoverProjectId] = useState(null);
 
-/*
-    useEffect(() => {
-        const fetchProjects = async () => {
-        const projectData = await getDocs(collection(firestore, "projects"));
-        setProjects(projectData.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
-        };
-
-        fetchProjects();
-    }, []);
-*/
     useEffect(() => {
         const fetchProjects = async () => {
             const userData = localStorage.getItem("firebase:authUser:");
@@ -58,8 +48,12 @@ const Projects = () => {
             imageSrc: "",
             videoSrc: "",
             content: "",
-            isTempSave: false
+            isTempSave: false,
+            linked: ""
           });
+          const projectId = newProjectRef.id;
+          await updateDoc(newProjectRef, { linked: projectId });
+
           setNewProjectTitle("");
           alert("프로젝트가 생성 되었습니다.");
           navigate(`/Projects/${newProjectRef.id}`);

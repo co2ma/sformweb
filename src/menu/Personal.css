@@ -1,0 +1,43 @@
+#loginTab{
+    text-align: center;
+}
+
+#social_login{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 16px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 16px;
+  }
+  
+  .profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  
+  .user-info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+  
+  .user-info p {
+    font-size: 14px;
+    color: #777;
+  }
+  #loginTab, .user-info {
+    width: clamp(100px, 80vw, 500px);
+    max-width: 100%;
+  }

@@ -2,11 +2,32 @@ import React, { useState } from "react";
 import "./VideoSidebar.css";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import FeaturedPlayListIcon from '@mui/icons-material/FeaturedPlayList';
+import ListIcon from '@mui/icons-material/List';
 import ShareIcon from '@mui/icons-material/Share';
+import { useNavigate } from "react-router-dom";
 
-const VideoSidebar = ({ likes, shares, linked }) => {
+
+const VideoSidebar = ({ likes, linked }) => {
   const [liked, setLiked] = useState(false);
+  const navigate = useNavigate();
+
+  const handleListIconClick = () => {
+    navigate(`/ItemList/${linked}`);
+  };
+
+  const handleShareIconClick = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: 'Shared Title',
+        text: 'Shared Text',
+        url: `/ItemList/${linked}`,
+      })
+      .then(() => console.log('Successful share'))
+      .catch((error) => console.log('Error sharing:', error));
+    } else {
+      alert(`Share this page: ${window.location.href}`);
+    }
+  };
 
   return (
     <div className="videoSidebar">
@@ -22,12 +43,10 @@ const VideoSidebar = ({ likes, shares, linked }) => {
         <p>{liked ? likes + 1 : likes}</p>
       </div>
       <div className="videoSidebar__button">
-        <FeaturedPlayListIcon fontSize="large" />
-        <p>{linked}</p>
+        <ListIcon fontSize="large" onClick={handleListIconClick} />
       </div>
       <div className="videoSidebar__button">
-        <ShareIcon fontSize="large" />
-        <p>{shares}</p>
+        <ShareIcon fontSize="large" onClick={handleShareIconClick} />
       </div>
     </div>
   );

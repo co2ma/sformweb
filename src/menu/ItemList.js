@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, query, orderBy, limit, startAfter } from "firebase/firestore";
+import { collection, getDocs, query, orderBy, limit, startAfter, where } from "firebase/firestore";
 import { firestore, storage } from "../firebase";
 import { Link } from "react-router-dom";
 import "./ItemList.css";
@@ -44,6 +44,7 @@ const ItemList = () => {
 
       const productsQuery = query(
         collection(firestore, "projects"),
+        where("isTempSave", "==", true), // 이 줄을 추가하세요.
         orderBy("title"),
         startAfter(lastVisible),
         limit(itemsPerPage)
