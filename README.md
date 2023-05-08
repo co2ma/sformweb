@@ -1,6 +1,9 @@
 # Short Contents를 이용한 Crowd Funding Web 
 Tiktok, Youtube Shorts, Instagram reels와 같은 ShortForm Contents을 이용한 Crowd Funding Web을 제작 한다.
 
+## 개발 기간
+2023/04/11 ~ 2023/05/10
+
 ## 개발 목적
 이미 존재하고 있는 기술인 크라우드 펀딩이라는 것을 가져와서 조금 더 대중들에게 접근성을 올려줄 수 있는 방안이 없는가에서 부터 아이디어를 출발해서 최근 사회 현상이라고 불릴 수 있을 정도인 Tiktok, reels 등에서 착안을 하여 Short Contents Crowd Funding Web을 개발 하기 시작했다. 이 내용에서는 Short Contents를 구현하고 로그인 별 자료 관리 정도 까지 다루고 있다.
 
@@ -67,6 +70,4 @@ CSS 디자인에 대해 시간 소모를 줄이기 위해 CSS 라이브러리를
 <img src = "https://user-images.githubusercontent.com/67058333/236690426-268bcc5b-f484-49ab-b1d0-0b294cdd7db3.png" width="400" height="600">
 
 로그인 화면 이다. firebase 내의 구글 소셜 로그인 기술을 사용했다.
-
-
 
