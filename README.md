@@ -30,9 +30,11 @@ REACT_APP_APP_ID=
 ## 사용 된 라이브러리
 
 @mui-material
+
 mui 라이브러리에서 아이콘등을 불러와서 사용 한다.
 
 Pico-css
+
 CSS 디자인에 대해 시간 소모를 줄이기 위해 CSS 라이브러리를 가져온다.
 
 ## 소개
