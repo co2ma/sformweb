@@ -23,8 +23,9 @@ const VideoSidebar = ({ linked }) => {
       })
       .then(() => console.log('Successful share'))
       .catch((error) => console.log('Error sharing:', error));
+      console.log(navigate.share);
     } else {
-      alert(`Share this page: ${window.location.href}`);
+      alert(`Share this page: ${window.location.href}${linked}`);
     }
   };
 
