@@ -3,6 +3,7 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import "./RichTextEditor.css";
 
+//
 const RichTextEditor = memo(({ value, onChange }) => {
   const modules = {
     toolbar: [
