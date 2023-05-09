@@ -6,6 +6,7 @@ import "./ItemDetail.css";
 
 const ItemDetail = () => {
   const [product, setProduct] = useState(null);
+  const [fundingSettings, setFundingSettings] = useState([]);
   const { productId } = useParams();
 
   useEffect(() => {
@@ -15,6 +16,7 @@ const ItemDetail = () => {
 
       if (productDoc.exists()) {
         setProduct(productDoc.data());
+        setFundingSettings(productDoc.data().fundingSettings || []);
       } else {
         console.error("Project not found");
       }
@@ -22,6 +24,10 @@ const ItemDetail = () => {
 
     fetchProduct();
   }, [productId]);
+
+  const handleFundingClick = () => {
+    alert("펀딩 완료");
+  };
 
   if (!product) {
     return <div>Loading product...</div>;
@@ -34,8 +40,11 @@ const ItemDetail = () => {
         className="product-content"
         dangerouslySetInnerHTML={{ __html: product.content }}
       ></div>
-      <button className="funding-button">펀딩하기</button>
-
+      {fundingSettings.map((setting, index) => (
+        <button key={index} className="funding-button" onClick={handleFundingClick}>
+          {setting.fundname} - {setting.funddetail} - {setting.fundfee}원 펀딩하기
+        </button>
+      ))}
     </div>
   );
 };

@@ -15,6 +15,9 @@ const MakingProject = () => {
 	const [imageSrc, setImageSrc] = useState("");
 	const [videoSrc, setVideoSrc] = useState("");
 	const [isTempSave, setIsTempSave] = useState(false);
+	const [fundingSettings, setFundingSettings] = useState([
+		{ fundname: "", funddetail: "", fundfee: "" },
+	  ]);
 	const navigate = useNavigate();
 	const { projectId } = useParams();
 
@@ -30,6 +33,7 @@ const MakingProject = () => {
 				setSummary(projectDoc.data().summary);
 				setImageSrc(projectDoc.data().imageSrc);
 				setVideoSrc(projectDoc.data().videoSrc);
+				setFundingSettings(projectDoc.data().fundingSettings);
 			} else {
 				console.error("Project not found");
 			}
@@ -47,7 +51,8 @@ const MakingProject = () => {
 				summary,
 				imageSrc,
 				videoSrc,
-				isTempSave: isTemp
+				isTempSave: isTemp,
+				fundingSettings
 			});
 			alert("업로드 되었습니다!");
 			navigate(`/projects`);
@@ -70,6 +75,25 @@ const MakingProject = () => {
 	const handleTempSave = async () => {
 		await saveProject(false);
 	};
+
+	const handleAddFundingSetting = () => {
+		setFundingSettings([
+		  ...fundingSettings,
+		  { fundname: "", funddetail: "", fundfee: "" },
+		]);
+	  };
+	
+	  const handleRemoveFundingSetting = () => {
+		if (fundingSettings.length > 1) {
+		  setFundingSettings(fundingSettings.slice(0, -1));
+		}
+	  };
+	
+	  const handleFundingSettingChange = (index, key, value) => {
+		const newFundingSettings = [...fundingSettings];
+		newFundingSettings[index][key] = value;
+		setFundingSettings(newFundingSettings);
+	  };
 
 	const handleImageUpload = async (event) => {
 		const file = event.target.files[0];
@@ -152,6 +176,43 @@ const MakingProject = () => {
 					<RichTextEditor value={content} onChange={(value) => setContent(value)} />
 
 				</p>     
+				<p>
+					펀딩 설정
+					{fundingSettings.map((setting, index) => (
+					<div key={index} style={{ display: "flex", marginBottom: "10px" }}>
+						<input
+						type="text"
+						value={setting.fundname}
+						onChange={(e) =>
+							handleFundingSettingChange(index, "fundname", e.target.value)
+						}
+						placeholder="Fund name"
+						style={{ marginRight: "10px", flex: 3}}
+						/>
+						<input
+						type="text"
+						value={setting.funddetail}
+						onChange={(e) =>
+							handleFundingSettingChange(index, "funddetail", e.target.value)
+						}
+						placeholder="Fund detail"
+						style={{ marginRight: "10px", flex: 7 }}
+						/>
+						<input
+						type="number"
+						value={setting.fundfee}
+						onChange={(e) =>
+							handleFundingSettingChange(index, "fundfee", e.target.value)
+						}
+						placeholder="Fund fee"
+						style={{ flex: 2 }}
+						min="0"
+						/>
+					</div>
+					))}
+				</p>
+				<button type="button" onClick={handleAddFundingSetting}>추가</button>
+				<button type="button" onClick={handleRemoveFundingSetting}>삭제</button>
 				<br/><br/>
 				<p> 
 					이미지 업로드<br/>
