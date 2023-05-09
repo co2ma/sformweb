@@ -48,7 +48,8 @@ const Projects = () => {
             videoSrc: "",
             content: "",
             isTempSave: false,
-            linked: ""
+            linked: "",
+            fundingSettings: [] 
           });
           const projectId = newProjectRef.id;
           await updateDoc(newProjectRef, { linked: projectId });
