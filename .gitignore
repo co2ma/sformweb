@@ -2,3 +2,6 @@
 .env
 # 용량 감소를 위한 모듈 제외
 node_modules
+
+.firebase
+build
