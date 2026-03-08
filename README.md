@@ -1,3 +1,6 @@
+# Short Contents를 이용한 Crowd Funding Web 
+Tiktok, Youtube Shorts, Instagram reels와 같은 ShortForm Contents을 이용한 Crowd Funding Web을 제작 한다.
+
 ## 1.1. 프로젝트 명
 ### Short Contents Crowd Funding Web
 > 숏폼(ShortForm) 영상 기반의 크라우드 펀딩 플랫폼
